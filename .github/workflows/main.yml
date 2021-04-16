@@ -76,6 +76,7 @@ jobs:
         with:
           name: release
           path: target/
+      - run: sudo chown -R $(whoami) target/
       - uses: actions-rs/cargo@v1
         with:
           command: run
@@ -100,6 +101,7 @@ jobs:
         with:
           name: release
           path: target/
+      - run: sudo chown -R $(whoami) target/
       - uses: actions-rs/cargo@v1
         with:
           command: run
@@ -123,6 +125,7 @@ jobs:
         with:
           name: release
           path: target/
+      - run: sudo chown -R $(whoami) target/
       - uses: actions-rs/cargo@v1
         with:
           command: run
