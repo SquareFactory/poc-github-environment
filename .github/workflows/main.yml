@@ -79,6 +79,8 @@ jobs:
         with:
           command: run
           args: --release
+        env:
+          TARGET: ${{ secrets.TARGET }}
 
   deploy-staging:
     name: Deploy to staging
@@ -102,6 +104,8 @@ jobs:
         with:
           command: run
           args: --release
+        env:
+          TARGET: ${{ secrets.TARGET }}
 
   deploy-prod:
     name: Deploy to prod
@@ -124,3 +128,5 @@ jobs:
         with:
           command: run
           args: --release
+        env:
+          TARGET: ${{ secrets.TARGET }}
