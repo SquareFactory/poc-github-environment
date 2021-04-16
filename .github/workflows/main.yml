@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: release
-          path: target/release/
+          path: target/
 
   clippy:
     name: Clippy
@@ -75,7 +75,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: release
-          path: target/release/
+          path: target/
       - uses: actions-rs/cargo@v1
         with:
           command: run
@@ -99,7 +99,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: release
-          path: target/release/
+          path: target/
       - uses: actions-rs/cargo@v1
         with:
           command: run
@@ -122,7 +122,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: release
-          path: target/release/
+          path: target/
       - uses: actions-rs/cargo@v1
         with:
           command: run
