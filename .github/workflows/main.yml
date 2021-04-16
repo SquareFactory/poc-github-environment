@@ -72,16 +72,16 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-      - name: Download static content from artifact
-        uses: actions/download-artifact@v2
+      - uses: actions-rs/cargo@v1
         with:
-          name: release
-          path: target/
-      - run: sudo chown -R $(whoami) target/
+          command: build
+          args: --release
       - uses: actions-rs/cargo@v1
         with:
           command: run
           args: --release
+        env:
+          TARGET: ${{ secrets.TARGET }}
 
   deploy-staging:
     name: 'deploy: staging'
@@ -97,16 +97,16 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-      - name: Download static content from artifact
-        uses: actions/download-artifact@v2
+      - uses: actions-rs/cargo@v1
         with:
-          name: release
-          path: target/
-      - run: sudo chown -R $(whoami) target/
+          command: build
+          args: --release
       - uses: actions-rs/cargo@v1
         with:
           command: run
           args: --release
+        env:
+          TARGET: ${{ secrets.TARGET }}
 
   deploy-prod:
     name: 'deploy: prod'
@@ -121,13 +121,13 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-      - name: Download static content from artifact
-        uses: actions/download-artifact@v2
+      - uses: actions-rs/cargo@v1
         with:
-          name: release
-          path: target/
-      - run: sudo chown -R $(whoami) target/
+          command: build
+          args: --release
       - uses: actions-rs/cargo@v1
         with:
           command: run
           args: --release
+        env:
+          TARGET: ${{ secrets.TARGET }}
