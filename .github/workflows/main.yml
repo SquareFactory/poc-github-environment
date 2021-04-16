@@ -71,12 +71,10 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-      - name: Download static content from artifact
-        uses: actions/download-artifact@v2
+      - uses: actions-rs/cargo@v1
         with:
-          name: release
-          path: target/
-      - run: sudo chown -R $(whoami) target/
+          command: build
+          args: --release
       - uses: actions-rs/cargo@v1
         with:
           command: run
@@ -96,12 +94,10 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-      - name: Download static content from artifact
-        uses: actions/download-artifact@v2
+      - uses: actions-rs/cargo@v1
         with:
-          name: release
-          path: target/
-      - run: sudo chown -R $(whoami) target/
+          command: build
+          args: --release
       - uses: actions-rs/cargo@v1
         with:
           command: run
@@ -120,12 +116,10 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-      - name: Download static content from artifact
-        uses: actions/download-artifact@v2
+      - uses: actions-rs/cargo@v1
         with:
-          name: release
-          path: target/
-      - run: sudo chown -R $(whoami) target/
+          command: build
+          args: --release
       - uses: actions-rs/cargo@v1
         with:
           command: run
